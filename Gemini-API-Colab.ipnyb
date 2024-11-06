@@ -1,0 +1,109 @@
+# Please note that my bot is undergoing updates and in place I'm using the
+# Gemini API (from Google). This may take a long time
+import time
+import time
+import subprocess
+
+def hashtag_load_bar(iteration, total, bar_length=100): # Ignore error here
+    """
+    Displays a simple hashtag load bar.
+
+    Args:
+        iteration: Current iteration (out of total).
+        total: Total number of iterations.
+        bar_length: Length of the hashtag bar.
+    """
+    filled = int(iteration / total * bar_length)
+    empty = bar_length - filled
+    bar = "#" * filled + "-" * empty
+    # Use \r to overwrite the previous line
+    print(f"\r|{bar}| {iteration}/{total}", end="")
+
+    # Flush the output buffer to ensure immediate display
+    time.sleep(0.1)
+
+
+    if iteration == total:
+        print()
+
+# Example Usage combined with Gemini API installation:
+total_iterations = 100
+
+print("Downloading, please wait...")
+
+for i in range(1, total_iterations + 1):
+    hashtag_load_bar(i, total_iterations)
+    try:
+        # Simulate installation progress for demonstration
+        if i == total_iterations // 2:
+            subprocess.check_call(["pip", "install", "-U", "-q", "google-generativeai"])
+    except Exception as e:
+        print(f"\nAn error occurred while installing the Python SDK: {e}")
+        break  # Exit the loop if installation fails
+
+if i == total_iterations: # Ignore Unbound Variable
+    print("Python SDK Installed", "...")
+import google.generativeai as genai # Import the language model
+print("'genai' imported","...")
+from google.colab import userdata # Loading "key1"
+print("userdata loaded","...")
+GOOGLE_API_KEY=userdata.get('key1')
+genai.configure(api_key=GOOGLE_API_KEY)
+print("API Key configured","...")
+model = genai.GenerativeModel('gemini-1.5-pro') # Model type
+
+# Just for decor...
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@@%@@@@@@@#%@%@%@%@@@@@@@@@@@@")
+print("@@@@@@%+:*.=@@@@@@@@@%*:=:-@@@@@#*.=.--==-=:*:#@@@@ @@%%--=:%@@@@@@@@@@@@@@@*#.=:*:====:=:+:= *@@@@@*=:=.*:=:*:--=@@@@")
+print("@@@%%##%=*-+@@@@@@%#*#@=*==@@@@#%%=*:*+**+*-#=%@@@@ ++#@*+*+@@@@@@@@@@@@@*==%%=#+%+****+#+#=#=%@@@@#@##%*@%%%@%%%%@@@@")
+print("@@@: :@@%@%%@@@@@@= .@@%%%%@@@%%=%#%@@@@@@@@@*%=*@@ .%@#*#+@@@@@@@@@@@@@. =@@@@@@@@*+*-@@@@@@*@@@**=+=%@@@@@@@@+=*:@@@")
+print("@@@: :@%:+:=@@@@@@= .@%-=-:@@%## =:*@@@@@@@@#:= =@@ .%@=:+:%@@@@@@@@@@@@: =@@@@@@@@+=+.%@@@@+@@@*@+:=:%@@@@@@@@=-=%@@@")
+print("@@@: :@%*%+#@@@@@@= .@@#%##+=*@@=@%%===+@@@@@%@*%@@ #@@@@@@@@@@@@@@@@@@%###@#*. @@@@@@%%%%%@%  #@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@: :@@*%*#@@@@@@+ .@@****  +@%:**%@@@@%@@@%=*:+@@ #@*+#+%@@@@@@@@@@@@@@@@@@#  %@*-+.%@@@@@%  #@+:=:%@@@@#@@@=:=.%@@@")
+print("@@@- :@%:=:=@@@@@@+  @@:--:  =@#.=-*@@@@@*@@#:= =@@ *@=:*:%@@@@@@@@@@@@@@@@@@*  %@=:=.%@@@@@%  *@*==:%@@@@@*@@==*:%@@@")
+time.sleep(0.2) #Pause the code for 0.2 seconds, just for taste
+print("@@@- :@@%%#%@@@@@@%*#@@%%@%  =@@%@@@@@@@- *@@@@%%@@ *@@@@@@@@@@@@@@@@@@@@@@@@*  %@@@@@@@@@@@%  *@@@@@@@@@@%@@%@@@%@@@@")
+print("@@@- :@@@@.:-:%@@%#@%:==-@=  =@% -:*@@@@: *@#.= .@@ *@=:*:%@@@@@@@@@@@@@@@@@@*  %@=:=.%@@@@@%. *@+-=:+.=:-.=-::-=.%@@@")
+print("@@@- .@@@@:-=:%@%#@@@:==-+@  =@%.==*@@@@: *@#:= =@@ *@=:*:%@@@@@@@@@@@@@@@@@@*  %@=-+:@@@@@@%. *@*=+:*:*-+-*+=+*#=@@@@")
+print("@@@@%%@@@@@@@%@@@@@@@@@@%@@  =@@%@@@@@@@: *@@%@#% @ *@@%@%@@@@@@@@@@@@@@@@@@@*  %@%*#*%@@@@@%. *@%*#*%@@@@@@@@*+%=%@@@")
+print("@@@@@@*@@@@@=:-:@@#:*.=%%@@. -@%.=:*@@@@: *@#:+.= @ *@+.*:#@@@@@@@@@@@@@@@@@@#  %@+:=:#@@@@@%. *@*:=:*@@@@@@@@=:+:#@@@")
+print("@@@@@@%*@@@@==+=@@%=#=+#@@@. -@@+#*#@@@@: *@%*%=% @ *@%+%*@@@@@@@@@@@@@@@@@@@*  %@%%@%@@@@@@%. *@@%@%%###*. #@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@%@@@@@@@. -@@@@%@@@@@: +@@%%*% @ *@@=%*%@@@@@@@@@@@@@@@@@@#  %@#-*-%@@@@@%. *@%:=:*@@@%  *@+.*:*@@@")
+print("@@@@@@@@#@@@@@+-*-=:*#%@@@@: -@@:=:+@@@@: =@#:*:- @ +@*.+:#@@@@@@@@@@@@@@@@@@#  %@*.=.#@@@@@%. *@#.=:*@@@%  *@*:*:*@@@")
+time.sleep(0.2)
+print("@@@@@@@@@%@@@@#*%**+#%@@@@@: :@@#%#%@@@@*=#@@%@%% @ +@%*@%@@@@@@@@@@@@@@@@@@@#  #@@%@@@@@@@@%. *@@%@%@@@@%  +@@@@@@@@@")
+print("@@@@@@@@@@*@@@@@%=#%%@@@@@@- :@@@@===:+:=-*.==*@= @ +@*.=:= =-=:-+=*==.%@@@@@#  #@*:+:%@@@@@%. *@*.=.*@@@@. +@*:*:*@@@")
+print("@@@@@@@@@@%*@@@@%-+#@@@@@@@= :@@@%:--.=.-:*.-=*=@ @ +@= =.- =:=::=-=:=.#@@@@@#  *@*:=:#@@@@@%. *@*.=.#@@@@. =@#=#=#@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%@@@@@@@@@@@@@@@@@@@ @ +@@@@@@@@@@@@@@@@@@@@@@@@%. *@@@@@@@@@@@%. *@@@@@%@@@@. =@@@@@%@@@")
+print("@@@@@@@@@@@@%%@@@%%@@@@@@@@@@%%@@@@@@@@@@@@@@%%@@ @ +@@@@@@@@@@@@@@@@@*@@@@@@%. *@@@@*@@@@@@%. *@@@@*@@@@@  =@@@@*@@@@")
+print("@@@@@@@@@@@@@#*+##@@@@@@@@@@@@%%+++++=+=+=%++#@@@.@ :=+===*==+**=***+*@@@@@@@@+:+*#**@@@@@@@@+-++*+*@@@@@@*=+*#*#@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 'Now runs AI!' @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+time.sleep(0.2)
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+#this took forever lol
+request = input("user:") # Request input
+
+
+print("Processing prompt...")
+print("")
+
+
+response = model.generate_content(request)
+final = response.text
+print("Response")
+print("")
+print("")
+print(final)
+print("")
+print("")
+print("end")
+print("")
+
+# I can't beleive that I made my own API, and even my own AI. My next goal is to make it conscious. Yes, Conscious. If you want to know what it's like, you can ask the chatbot.
+# Below is for images.
