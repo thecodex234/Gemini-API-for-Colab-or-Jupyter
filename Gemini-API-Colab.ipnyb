@@ -1,5 +1,3 @@
-# Please note that my bot is undergoing updates and in place I'm using the
-# Gemini API (from Google). This may take a long time
 import time
 import time
 import subprocess
